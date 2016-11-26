@@ -1,0 +1,39 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title
+      - title = yield(:title)
+      = title.present? ? title : "Untitled"
+      |
+      = t :application_name, default: 'Shop'
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag 'logo.png'
+
+  %body{:lang => I18n.locale,
+    :class => [controller.controller_name, controller.action_name, yield(:body_class)]}
+    %header
+      - if defined? root_path
+        = link_to root_path, class: 'image_link' do
+          = image_tag 'logo.png'
+      - else
+        = image_tag 'logo.png'
+      #user_nav
+
+    #container
+      -# = render "layouts/admin_menu"
+      -# = render "layouts/main_menu"
+
+      #content
+        - flash.each do |name, msg|
+          = content_tag :div, msg.html_safe, :id => "flash_#{name}"
+
+        - if respond_to?(:show_title?) and show_title?
+          %h1
+            = yield(:title)
+
+        #view
+          = yield
+
