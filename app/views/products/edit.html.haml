@@ -1,0 +1,9 @@
+- title t('.title')
+
+%p.nav
+  - if can? :index, Product
+    = link_to t('back'), products_path, class: 'index'
+  - if can? :show, @product
+    = link_to t('show'), @product, class: 'show'
+
+= render 'form', product: @product

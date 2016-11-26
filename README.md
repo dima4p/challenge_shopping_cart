@@ -1,5 +1,9 @@
 # Shopping cart
 
+### TODO
+
+* Add currency to the prices and cost
+
 ## The task
 
 1. Setup a Github repository

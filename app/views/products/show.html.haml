@@ -1,0 +1,13 @@
+- title t('.title')
+
+%p.nav
+  - if can? :index, Product
+    = link_to t('back'), products_path, class: 'index'
+  - if can? :edit, @product
+    = link_to t('edit'), edit_product_path(@product), class: 'edit'
+
+%dl
+  %dt= Product.human_attribute_name :name
+  %dd= @product.name
+  %dt= Product.human_attribute_name :price
+  %dd= @product.price

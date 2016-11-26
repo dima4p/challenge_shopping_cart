@@ -1,0 +1,31 @@
+---
+en:
+  activerecord:
+    models:
+      product: "Product"
+    attributes:
+      product: 
+        name: "Name"
+        price: "Price"
+  helpers:
+    submit:
+      product:
+        create: "Create product"
+        update: "Update product"
+  products:
+    edit:
+      title: "Editing of the product"
+    form:
+      product: "Product"
+    index:
+      confirm: "Are you sure you want to delete the product?"
+      empty: "No products found"
+      new_product: "Add a new product"
+      title: "Listing of products"
+    new:
+      title: "Adding a new product"
+    show:
+      title: "Product details"
+    was_created: "Product was successfully added"
+    was_deleted: "Product was successfully deleted"
+    was_updated: "Product was successfully updated"
