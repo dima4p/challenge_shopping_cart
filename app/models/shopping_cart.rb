@@ -16,6 +16,7 @@ class ShoppingCart < Hash
     product = Product.find product unless product.is_a? Product
     count = 1 if count.blank?
     self[product.id] += count.to_i
+    self
   end
 
   def content
@@ -27,6 +28,7 @@ class ShoppingCart < Hash
   def drop!(product)
     product = Product.find product unless product.is_a? Product
     except! product.id
+    self
   end
 
   def set!(product, count)
@@ -35,8 +37,8 @@ class ShoppingCart < Hash
       self[product.id] = count.to_i
     else
       except! product.id
-      0
     end
+    self
   end
 
   def total
@@ -49,5 +51,6 @@ class ShoppingCart < Hash
     hash.each do |product, count|
       set! product, count
     end
+    self
   end
 end

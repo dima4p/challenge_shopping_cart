@@ -46,8 +46,8 @@ describe ShoppingCart, type: :model do
         expect(subject.keys).to include product.id
       end
 
-      it 'returns the count of the Product in the cart' do
-        expect(subject.add! argument1).to be 1
+      it 'returns the cart' do
+        expect(subject.update({})).to be_a ShoppingCart
       end
     end   # when the first argument is the ID of an existing Product
 
@@ -135,6 +135,10 @@ describe ShoppingCart, type: :model do
       subject.add! product
     end
 
+    it 'returns the cart' do
+      expect(subject.drop! argument1).to be_a ShoppingCart
+    end
+
     context 'when the argument is the unexisting ID for Product' do
       let(:argument1) {product.id + 1}
 
@@ -162,6 +166,10 @@ describe ShoppingCart, type: :model do
     let!(:product) {create :product}
     let(:argument1) {product}
     let(:argument2) {5}
+
+    it 'returns the cart' do
+      expect(subject.set! argument1, argument2).to be_a ShoppingCart
+    end
 
     context 'when the first argument is the unexisting ID for Product' do
       let(:argument1) {product.id + 1}
@@ -252,6 +260,10 @@ describe ShoppingCart, type: :model do
       expect(subject).to receive(:set!).with(product1, 1)
       expect(subject).to receive(:set!).with(product2.id, 0)
       subject.update product1 => 1, product2.id => 0
+    end
+
+    it 'returns the cart' do
+      expect(subject.update({})).to be_a ShoppingCart
     end
   end   #update
 end
