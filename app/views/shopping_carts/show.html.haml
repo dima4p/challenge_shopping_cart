@@ -1,0 +1,19 @@
+- title t('.title')
+
+= form_for shopping_cart_path, method: 'patch' do |f|
+  %table
+    %thead
+      %tr
+        %th= t '.product'
+        %th= t '.amount'
+    %tbody
+      - @shopping_cart.content.each do |product, count|
+        %tr
+          %td= product.name
+          %td= number_field_tag "shopping_cart[#{product.id}]", count, min: 0
+
+      %tr
+        %td= t '.total'
+        %td= @shopping_cart.total
+  = submit_tag t('.update'), id: 'submit', class: :check_out
+  = link_to t('.continue'), root_path, class: :index

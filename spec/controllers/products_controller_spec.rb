@@ -25,8 +25,9 @@ describe ProductsController, type: :controller do
     it "assigns all products as @products" do
       product
       get :index, params: {}, session: valid_session
-      expect(assigns(:products)).to be_kind_of(ActiveRecord::Relation)
+      expect(assigns(:products)).to be_an(ActiveRecord::Relation)
       expect(assigns(:products)).to eq([product])
+      expect(assigns(:shopping_cart)).to be_a(ShoppingCart)
     end
   end
 

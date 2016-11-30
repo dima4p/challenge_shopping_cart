@@ -1,0 +1,15 @@
+---
+en:
+  activerecord:
+    models:
+      shopping_cart: "Shopping cart"
+  shopping_carts:
+    show:
+      amount: "Amount"
+      continue: "Continue shopping"
+      product: "Product"
+      title: "Check out"
+      total: "Total sum"
+      update: "Go to payment"
+    was_created: "A product was successfully added to the shopping cart"
+    was_updated: "Now here should be the paymen page"

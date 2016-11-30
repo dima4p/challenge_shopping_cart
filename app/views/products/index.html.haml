@@ -17,8 +17,11 @@
           %td= product.name
           %td= product.price
           %td.action
-            - if can? :show, product
-              = link_to t('show'), product, class: 'show'
+            - if can? :add_to_cart, product
+              = button_to t('.add_to_cart'),
+                  {controller: :shopping_carts, action: :create,
+                  shopping_cart: {product.id => 1}}, remote: true,
+                  class: 'show'
           %td.action
             - if can? :edit, product
               = link_to t('edit'), edit_product_path(product), class: 'edit'

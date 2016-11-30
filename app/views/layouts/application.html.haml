@@ -21,6 +21,15 @@
       - else
         = image_tag 'logo.png'
       #user_nav
+        = link_to shopping_cart_path, title: t('.shopping_cart') do
+          #shopping_cart
+            = image_tag 'shopping_cart.png'
+            = t('.cart_size')
+            .size
+              = @shopping_cart.size
+            = t('.cart_total')
+            .total
+              = @shopping_cart.total
 
     #container
       -# = render "layouts/admin_menu"

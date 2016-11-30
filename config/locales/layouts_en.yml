@@ -1,0 +1,7 @@
+---
+en:
+  layouts:
+    application:
+      cart_size: "Products:"
+      cart_total: "Total:"
+      shopping_cart: "Show the shopping cart"

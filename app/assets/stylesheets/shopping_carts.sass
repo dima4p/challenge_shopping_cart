@@ -1,0 +1,28 @@
+@import colors
+@import fancy-buttons
+
+#user_nav
+  margin: 0 !important
+  a
+    &:hover
+      background-color: $shopping_cart_hover_bg
+      color: $shopping_cart_hover
+
+#shopping_cart
+  display: inline-block
+  height: 31px
+  padding-top: 4px
+  img
+    height: 36px
+    vertical-align: middle
+  div
+    display: inline-block
+
+body.shopping_carts.show
+  input[type='number']
+    padding: 4px 0 4px 4px
+    text-align: right
+    width: 60px
+  input[type="submit"]
+    &.check_out
+      +fancy-button($record_edit_color, 12px)
