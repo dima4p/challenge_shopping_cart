@@ -2,7 +2,9 @@
 
 ### TODO
 
-* Add currency to the prices and cost
+* Add currency to the prices and the total cost
+* Change the logo image
+* Implement authenticaton, payment, etc., etc.
 
 ## The task
 
